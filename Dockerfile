@@ -30,7 +30,7 @@ ENV YDLS_VERSION=$YDLS_VERSION
 ENV YDLS_RELEASE_DATE=$YDLS_RELEASE_DATE
 
 WORKDIR /usr/src/app
-RUN apk add --no-cache ffmpeg tzdata mailcap
+RUN apk add --no-cache ffmpeg tzdata mailcap unzip wget
 RUN if [ $ATOMICPARSLEY == 1 ]; then apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing atomicparsley; ln /usr/bin/atomicparsley /usr/bin/AtomicParsley || true; fi
 
 VOLUME "/youtube-dl"
