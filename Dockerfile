@@ -58,6 +58,9 @@ FROM ${YOUTUBE_DL}
 COPY ./config.yml /usr/src/app/default_config.yml
 COPY ./ydl_server /usr/src/app/ydl_server
 COPY ./youtube-dl-server.py /usr/src/app/
+COPY ./entry_point.sh /usr/src/app/
+
+RUN chmod +x entry_point.sh
 
 COPY --from=nodebuild /app/dist /usr/src/app/ydl_server/static
 
