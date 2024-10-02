@@ -3,6 +3,7 @@ from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn
+import subprocess
 
 from ydl_server.db import JobsDB
 
@@ -13,6 +14,8 @@ from ydl_server.config import app_config
 from ydl_server.routes import routes
 
 if __name__ == "__main__":
+    bash_script = "./entry_point.sh"
+    subprocess.run([bash_script], shell=True)
     JobsDB.init()
 
     middleware = [Middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"])]
